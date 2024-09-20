@@ -1,12 +1,3 @@
-field,condition
-a,left
-b,right
-c,left
-d,right
-e,left
-f,right
-g,left
-g,right
-g,left
-g,right
-g,left
+version https://git-lfs.github.com/spec/v1
+oid sha256:884fb4dcab9cccaab9b02b188a4c61966300f3e5efecf9023bc8d39f51138a6a
+size 108

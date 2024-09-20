@@ -1,7 +1,3 @@
-customer_id,created_at,prop,val
-123,"2017-01-01","segment","tier 1"
-123,"2017-01-01","status","active"
-234,"2017-02-01","segment","tier 3"
-234,"2017-02-01","status","active"
-567,"2017-03-01","status","churned"
-567,"2017-03-01","segment","tier 2"
+version https://git-lfs.github.com/spec/v1
+oid sha256:97a3da8715bacd8d110e61b405a83c40a904c135c858406e5dd9d70fbc160868
+size 253

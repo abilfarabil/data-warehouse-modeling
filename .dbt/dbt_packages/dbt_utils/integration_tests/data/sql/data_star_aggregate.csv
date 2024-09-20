@@ -1,5 +1,3 @@
-group_field_1,group_field_2,value_field
-a,b,1
-a,b,2
-c,d,3
-c,e,4
+version https://git-lfs.github.com/spec/v1
+oid sha256:78fa84a4ef02f95d6ee612bddaa3ac056b4927052a748109a39aa724f145cc47
+size 67

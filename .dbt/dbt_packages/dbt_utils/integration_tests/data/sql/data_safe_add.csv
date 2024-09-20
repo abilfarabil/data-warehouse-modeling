@@ -1,5 +1,3 @@
-field_1,field_2,field_3,expected
-1,2,3,6
-1,,3,4
-,,2,2
-,,,0
+version https://git-lfs.github.com/spec/v1
+oid sha256:ac9d1cbcc9fb068f985688f0739029db37fe28a58e52e56b7ac77f223f283d45
+size 64

@@ -1,7 +1,3 @@
-numerator,denominator_1,denominator_2,output
-,0,4,
-6,3,2,1
-0,2,6,0
-0,,8,
-5,,2,
-4,0,4,
+version https://git-lfs.github.com/spec/v1
+oid sha256:48fcec4af37091371fe17de03f0d964f00c533901fd04917bbda7b57ec3633e4
+size 91

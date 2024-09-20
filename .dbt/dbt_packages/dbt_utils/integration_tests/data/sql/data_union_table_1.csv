@@ -1,4 +1,3 @@
-id,name,favorite_number
-1,drew,pi
-2,bob,e
-3,alice,4
+version https://git-lfs.github.com/spec/v1
+oid sha256:10c34970f731c0f062c683a982281fd7576cb043eddbd72db3f36735bfd46f63
+size 56

@@ -1,6 +1,3 @@
-id,name,favorite_color,favorite_number
-1,"drew",,pi
-2,"bob",,e
-3,"alice",,4
-1,,"green",7
-2,,"pink",13
+version https://git-lfs.github.com/spec/v1
+oid sha256:66f8b96884516fe7040af8c499db42b2a8ce904deb38aa30ad0b9a228ec992b8
+size 108

@@ -1,4 +1,3 @@
-user_id,event,version
-1,play,1
-1,play,2
-2,pause,1
+version https://git-lfs.github.com/spec/v1
+oid sha256:c5123bf01df66fbf61c7b74f4715ad931bb422d83dca7ba0ceeccb83ae3df18f
+size 54
