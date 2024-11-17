@@ -1,87 +1,106 @@
-# Project Analisis Data - Amazon Sales Report
+# Amazon Sales Report Analysis Project
 
-## Deskripsi Project
-Project ini bertujuan untuk menganalisis data penjualan dari laporan Amazon dengan menggunakan DBT (Data Build Tool) dan BigQuery. Skema bintang (Star Schema) dibangun dengan tabel dimensi dan tabel fakta untuk menghasilkan analisis yang relevan.
+## Overview
+This project analyzes Amazon sales report data using DBT (Data Build Tool) and BigQuery. The analysis is built on a Star Schema design with dimension and fact tables to generate relevant business insights.
 
-## Tabel yang Dibuat
-### Tabel Dimensi
+## Prerequisites
+- Google Cloud Platform Account
+- BigQuery Access
+- DBT (Data Build Tool)
+- Access to Amazon Sales Report data
+
+## Installation & Setup
+1. Clone this repository
+```bash
+git clone https://github.com/abilfarabil/data-warehouse-modeling
+```
+
+2. Set up BigQuery
+- Upload the Amazon sales report data to BigQuery
+- Configure BigQuery credentials in DBT
+![Upload Data](images/1_Upload_Data_amazon_sale_report_ke_BigQuery.png)
+
+## Project Structure
+```
+project/
+├── .dbt/
+│   └── models/
+│       ├── fulfilment/
+│       │   └── dim_fulfilment.sql
+│       ├── product/
+│       │   └── dim_product.sql
+│       ├── promotion/
+│       │   └── dim_promotion.sql
+│       ├── shipment/
+│       │   └── dim_sales_shipment.sql
+│       ├── sales_channel/
+│       │   └── dim_sales_channel.sql
+│       └── fact/
+│           └── fact_salesorder.sql
+└── images/
+```
+
+## Data Model
+### Dimension Tables
 1. **dim_fulfilment**
-   - Menyimpan informasi tentang metode pemenuhan dan pihak yang memenuhi.
-   - File: [dim_fulfilment.sql](.dbt/models/fulfilment/dim_fulfilment.sql)
+   - Stores fulfillment method information
+   - Implementation: [dim_fulfilment.sql](.dbt/models/fulfilment/dim_fulfilment.sql)
+   ![Fulfilment Model](images/2_Membuat_Model_DBT_Untuk_dim_fulfilment.png)
 
 2. **dim_product**
-   - Menyimpan detail produk, termasuk style, SKU, kategori, dan ukuran.
-   - File: [dim_product.sql](.dbt/models/product/dim_product.sql)
+   - Contains product details (style, SKU, category, size)
+   - Implementation: [dim_product.sql](.dbt/models/product/dim_product.sql)
+   ![Product Model](images/5_Membuat_Model_DBT_Untuk_dim_product.png)
 
 3. **dim_promotion**
-   - Menyimpan informasi promosi yang terkait dengan produk.
-   - File: [dim_promotion.sql](.dbt/models/promotion/dim_promotion.sql)
+   - Stores promotion-related information
+   - Implementation: [dim_promotion.sql](.dbt/models/promotion/dim_promotion.sql)
+   ![Promotion Model](images/8_Membuat_Model_DBT_Untuk_dim_promotion.png)
 
 4. **dim_sales_shipment**
-   - Menyimpan detail pengiriman, termasuk status kurir dan alamat pengiriman.
-   - File: [dim_sales_shipment.sql](.dbt/models/shipment/dim_sales_shipment.sql)
+   - Contains shipping details and delivery status
+   - Implementation: [dim_sales_shipment.sql](.dbt/models/shipment/dim_sales_shipment.sql)
+   ![Shipment Model](images/11_Membuat_Model_DBT_Untuk_dim_sales_shipment.png)
 
 5. **dim_sales_channel**
-   - Menyimpan informasi tentang saluran penjualan.
-   - File: [dim_sales_channel.sql](.dbt/models/sales_channel/dim_sales_channel.sql)
+   - Stores sales channel information
+   - Implementation: [dim_sales_channel.sql](.dbt/models/sales_channel/dim_sales_channel.sql)
+   ![Sales Channel Model](images/14_Membuat_Model_DBT_Untuk_dim_sales_channel.png)
 
-### Tabel Fakta
+### Fact Table
 1. **fact_salesorder**
-   - Menyimpan informasi tentang pesanan penjualan, termasuk tanggal, jumlah, dan pendapatan.
-   - File: [fact_salesorder.sql](.dbt/models/fact/fact_salesorder.sql)
+   - Contains sales order transactions
+   - Implementation: [fact_salesorder.sql](.dbt/models/fact/fact_salesorder.sql)
+   ![Fact Sales Order](images/17_Membuat_Model_DBT_Untuk_fact_salesorder.png)
 
-## Entity-Relationship Diagram (ERD)
-Diagram ERD yang menggambarkan hubungan antara tabel dimensi dan tabel fakta dalam skema bintang:
-
+## Data Model (ERD)
+Star Schema Entity Relationship Diagram:
 ![ERD](images/20_ERD_Star_Schema.png)
 
-## Analisis Data: Top Selling Products
-Analisis ini menunjukkan produk terlaris berdasarkan jumlah penjualan dan pendapatan:
+## Analysis Results
+### Top Selling Products Analysis
+Query and results showing best-performing products by sales volume and revenue:
+![Analysis Query](images/21_Query_Analisis_Top_Selling_Products_di_BigQuery.png)
+![Analysis Results](images/22_Hasil_Query_Top_Selling_Products_di_BigQuery.png)
 
-### Hasil Analisis
-![22_Hasil_Query_Top_Selling_Products_di_BigQuery](images/22_Hasil_Query_Top_Selling_Products_di_BigQuery.png)
+## Implementation Steps
+Detailed steps of the implementation process are documented through screenshots:
 
-## Screenshot yang Diambil
-Berikut adalah daftar screenshot yang diambil untuk dokumentasi:
-1. **Upload Data ke BigQuery**
-   - ![1_Upload_Data_amazon_sale_report_ke_BigQuery](images/1_Upload_Data_amazon_sale_report_ke_BigQuery.png)
+1. Data Upload to BigQuery
+2. Dimension Tables Creation
+3. Fact Table Implementation
+4. Model Verification
+5. Analysis Execution
 
-2. **Membangun Tabel Dimensi (dim_fulfilment)**
-   - ![2_Membuat_Model_DBT_Untuk_dim_fulfilment](images/2_Membuat_Model_DBT_Untuk_dim_fulfilment.png)
-   - ![3_Menjalankan_Model_DBT_Setelah_model_dim_fulfilment_sql_selesai](images/3_Menjalankan_Model_DBT_Setelah_model_dim_fulfilment_sql_selesai.png)
-   - ![4_Verifikasi_Tabel_dim_fulfilment_di_BigQuery](images/4_Verifikasi_Tabel_dim_fulfilment_di_BigQuery.png)
+Full implementation details with screenshots can be found in the [Implementation Details](images) section.
 
-3. **Membangun Tabel Dimensi (dim_product)**
-   - ![5_Membuat_Model_DBT_Untuk_dim_product](images/5_Membuat_Model_DBT_Untuk_dim_product.png)
-   - ![6_Menjalankan_Model_DBT_Setelah_model_dim_product_sql_selesai](images/6_Menjalankan_Model_DBT_Setelah_model_dim_product_sql_selesai.png)
-   - ![7_Verifikasi_Tabel_dim_product_di_BigQuery](images/7_Verifikasi_Tabel_dim_product_di_BigQuery.png)
+## Technologies Used
+- DBT (Data Build Tool)
+- Google BigQuery
+- SQL
+- Star Schema Data Modeling
 
-4. **Membangun Tabel Dimensi (dim_promotion)**
-   - ![8_Membuat_Model_DBT_Untuk_dim_promotion](images/8_Membuat_Model_DBT_Untuk_dim_promotion.png)
-   - ![9_Menjalankan_Model_DBT_Setelah_model_dim_promotion_sql_selesai](images/9_Menjalankan_Model_DBT_Setelah_model_dim_promotion_sql_selesai.png)
-   - ![10_Verifikasi_Tabel_dim_promotion_di_BigQuery](images/10_Verifikasi_Tabel_dim_promotion_di_BigQuery.png)
-
-5. **Membangun Tabel Dimensi (dim_sales_shipment)**
-   - ![11_Membuat_Model_DBT_Untuk_dim_sales_shipment](images/11_Membuat_Model_DBT_Untuk_dim_sales_shipment.png)
-   - ![12_Menjalankan_Model_DBT_Setelah_model_dim_sales_shipment_sql_selesai](images/12_Menjalankan_Model_DBT_Setelah_model_dim_sales_shipment_sql_selesai.png)
-   - ![13_Verifikasi_Tabel_dim_sales_shipment_di_BigQuery](images/13_Verifikasi_Tabel_dim_sales_shipment_di_BigQuery.png)
-
-6. **Membangun Tabel Dimensi (dim_sales_channel)**
-   - ![14_Membuat_Model_DBT_Untuk_dim_sales_channel](images/14_Membuat_Model_DBT_Untuk_dim_sales_channel.png)
-   - ![15_Menjalankan_Model_DBT_Setelah_model_dim_sales_channel_sql_selesai](images/15_Menjalankan_Model_DBT_Setelah_model_dim_sales_channel_sql_selesai.png)
-   - ![16_Verifikasi_Tabel_dim_sales_channel_di_BigQuery](images/16_Verifikasi_Tabel_dim_sales_channel_di_BigQuery.png)
-
-7. **Membangun Tabel Fakta (fact_salesorder)**
-   - ![17_Membuat_Model_DBT_Untuk_fact_salesorder](images/17_Membuat_Model_DBT_Untuk_fact_salesorder.png)
-   - ![18_Menjalankan_Model_DBT_Setelah_model_fact_salesorder_sql_selesai](images/18_Menjalankan_Model_DBT_Setelah_model_fact_salesorder_sql_selesai.png)
-   - ![19_Verifikasi_Tabel_fact_salesorder_di_BigQuery](images/19_Verifikasi_Tabel_fact_salesorder_di_BigQuery.png)
-
-8. **ERD Star Schema**
-   - ![20_ERD_Star_Schema](images/20_ERD_Star_Schema.png)
-
-9. **Query Analisis Top Selling Products**
-   - ![21_Query_Analisis_Top_Selling_Products_di_BigQuery](images/21_Query_Analisis_Top_Selling_Products_di_BigQuery.png)
-   - ![22_Hasil_Query_Top_Selling_Products_di_BigQuery](images/22_Hasil_Query_Top_Selling_Products_di_BigQuery.png)
-
-## Penutup
-Dokumentasi ini merangkum langkah-langkah yang diambil dalam Project analisis data menggunakan DBT dan BigQuery. Hasil analisis ini diharapkan dapat memberikan wawasan yang berguna dalam memahami kinerja produk di platform Amazon.
+## References
+- [DBT Documentation](https://docs.getdbt.com/)
+- [Google BigQuery Documentation](https://cloud.google.com/bigquery/docs)
+- [Star Schema Design Principles](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/)
